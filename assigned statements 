@@ -1,0 +1,6 @@
+thisIsALongNestedMapping[being][set][toSomeValue] = someFunction(
+    argument1,
+    argument2,
+    argument3,
+    argument4
+);
