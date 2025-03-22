@@ -1,0 +1,17 @@
+open in Remix
+
+event LongAndLotsOfArgs(
+    address sender,
+    address recipient,
+    uint256 publicKey,
+    uint256 amount,
+    bytes32[] options
+);
+
+emit LongAndLotsOfArgs(
+    sender,
+    recipient,
+    publicKey,
+    amount,
+    options
+);
