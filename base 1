@@ -241,3 +241,40 @@ inline string PubKeyToAddress(const vector<unsigned char>& vchPubKey)
 {
     return Hash160ToAddress(Hash160(vchPubKey));
 }
+
+
+inline bool IsValidBitcoinAddress (const char* psz)
+
+185
+
+{
+
+186
+
+uint160 hash160;
+
+187
+
+return Address ToHash160 (psz, hash160);
+
+188
+
+189
+
+}
+
+190
+
+inline bool IsValidBitcoinAddress (const string& str)
+
+{
+
+191
+
+192
+
+return IsValidBitcoinAddress(str.c_str());
+
+193
+
+}
