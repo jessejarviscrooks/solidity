@@ -1,0 +1,24 @@
+function test() external view returns(address token) {
+        assembly {
+            let index := 0x01 // * the last byte if inputPos is an index
+            let router := 0x1DeB3b1cA6afca0FF9C5cE9301950dC98Ac0D523 // curve pool
+            let ptr := mload(0x40)
+            mstore(ptr, 0xc6610657) // coins(uint256)
+            mstore(add(ptr, 0x04), index)
+            let success := staticcall(
+                gas(), 
+                router, 
+                ptr,
+                0x24, 
+                0, 
+                0x20
+            )
+
+            if iszero(eq(returndatasize(), 0x20)) {
+                returndatacopy(ptr, 0, returndatasize())
+                revert(ptr, returndatasize())
+            }
+            
+            token := mload(0)
+        }
+    }
