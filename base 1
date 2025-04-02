@@ -278,3 +278,16 @@ return IsValidBitcoinAddress(str.c_str());
 193
 
 }
+
+
+
+
+#include <stdexcept>
+
+6
+
+#include <vector>
+
+7
+
+#include <openssl/bn.h>
