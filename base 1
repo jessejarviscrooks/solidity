@@ -1,1 +1,35 @@
 static const char* pszBase58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
+
+
+
+static const unsigned char ADDRESSVERSION = 0;
+
+156
+
+157
+
+inline string Hash160ToAddress (uint160 hash160)
+
+158
+
+{
+
+159
+
+// add 1-byte version number to the front
+
+160
+
+vector<unsigned char> vch (1, ADDRESSVERSION);
+
+161
+
+vch.insert(vch.end(), UBEGIN (hash160), UEND (hash160));
+
+162
+
+return EncodeBase58Check(vch);
+
+163
+
+}
